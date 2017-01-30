@@ -4,8 +4,10 @@ var path = require('path');
 var fs = require('fs-extra');
 
 var MarkdownIt = require('markdown-it');
-var taskLists = require('markdown-it-task-lists');
-var emoji = require('markdown-it-emoji');
+var mdTaskLists = require('markdown-it-task-lists');
+var mdEmoji = require('markdown-it-emoji');
+var mdContainer = require('markdown-it-container');
+var mdFootnote = require('markdown-it-footnote');
 var highlightJs = require('highlight.js');
 var slug = require('limax');
 
@@ -189,8 +191,10 @@ class Markdown {
             html: true
         });
 
-        this._md.use(taskLists, {label: true});
-        this._md.use(emoji);
+        this._md.use(mdTaskLists, {label: true});
+        this._md.use(mdEmoji);
+        this._md.use(mdFootnote);
+        // this._md.use(mdContainer);
 
         this._md.use(require('markdown-it-anchor'), {
             level: 1,
@@ -198,7 +202,7 @@ class Markdown {
             permalink: true,
             permalinkClass: 'header-anchor',
             permalinkSymbol: '#',
-            permalinkBefore: true
+            permalinkBefore: false
         });
 
     }

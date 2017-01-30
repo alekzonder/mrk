@@ -5,9 +5,9 @@ var cwd = process.cwd();
 
 var config = {
     host: 'localhost',
-    port: 8082,
+    port: 3334,
 
-    logLevel: 'TRACE',
+    logLevel: 'INFO',
 
     markdownDir: cwd,
 

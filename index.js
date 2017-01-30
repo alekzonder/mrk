@@ -37,7 +37,7 @@ init.config(logger)
 
         var watcher = di.api.markdown.watch(di.config.get('markdownDir'), {
             header: fs.readFileSync(path.join(__dirname, 'templates/render/header.html')).toString(),
-            footer: fs.readFileSync(path.join(__dirname, 'templates/render/header.html')).toString()
+            footer: fs.readFileSync(path.join(__dirname, 'templates/render/footer.html')).toString()
         });
 
         var serve = serveStatic(di.config.get('wwwDir'));
