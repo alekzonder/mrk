@@ -69,7 +69,7 @@ init.config(logger)
         var port = config.get('port');
 
         app.server.listen(port, host, function () {
-            logger.info(`listen on ${host}:${port}`);
+            logger.info(`listen on http://${host}:${port}`);
         });
 
     })

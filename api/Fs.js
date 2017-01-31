@@ -72,10 +72,19 @@ class Fs {
     watchdir (filepath) {
         var watcher = chokidar.watch(filepath, {
             ignoreInitial: false,
-            ignored: [
-                'node_modules',
-                'www_md'
-            ]
+
+            ignored: function (filepath, stats) {
+
+                if (filepath.search(/www_md|node_modules|\.git/) > -1) {
+                    return true;
+                }
+
+                if (stats && stats.isFile() && filepath.search(/\.md$/) === -1) {
+                    return true;
+                }
+
+                return false;
+            }
         });
 
         return watcher;
