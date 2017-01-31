@@ -27,6 +27,8 @@ module.exports = {
     host: joi.string().allow(null).default(config.host),
     port: joi.number().default(config.port),
 
+    logLevel: joi.string().default(config.logLevel),
+
     markdownDir: joi.string().default(config.markdownDir),
     wwwDir: joi.string().default(config.wwwDir),
 
