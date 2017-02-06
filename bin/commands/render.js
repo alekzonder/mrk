@@ -2,14 +2,15 @@ module.exports = function (di) {
 
     di.program.command('render')
         .alias('r')
+        .option('--footer <file>', 'set custom footer, should close </body></html>')
         .description('render all .md files in work dir')
-        .action(function () {
+        .action(function (cmdOptions) {
 
             var path = require('path');
             var fs = require('fs-extra');
             var klaw = require('klaw');
             var _ = require('maf/vendors/lodash');
-            
+
             var options = {
                 filter: function (filepath) {
                     if (di.api.fs.isIgnored(filepath)) {
@@ -27,7 +28,19 @@ module.exports = function (di) {
             var queue = [];
 
             var header = fs.readFileSync(path.join(__dirname, '/../../templates/render', 'header.html')).toString();
-            var footer = fs.readFileSync(path.join(__dirname, '/../../templates/render', 'footer.html')).toString();
+            var footer = '';
+
+            if (cmdOptions.footer) {
+
+                if (!fs.existsSync(cmdOptions.footer)) {
+                    throw new Error('no footer file: ' + cmdOptions.footer);
+                }
+
+                footer = fs.readFileSync(path.resolve(cmdOptions.footer)).toString();
+
+            } else {
+                footer = fs.readFileSync(path.join(__dirname, '/../../templates/render', 'footer.html')).toString();
+            }
 
             klaw(di.config.get('markdownDir'), options)
                 .on('data', function (item) {

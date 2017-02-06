@@ -44,6 +44,10 @@ mrk render
 mrk r
 ```
 
+### options
+
+`--footer <filepath>` - set your custom footer with analytics or js
+
 ## clean
 
 clean all rendered files
