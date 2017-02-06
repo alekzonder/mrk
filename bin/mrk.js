@@ -33,6 +33,7 @@ init.config(logger)
         require(path.join(__dirname, 'commands', 'start'))(di);
         require(path.join(__dirname, 'commands', 'render'))(di);
         require(path.join(__dirname, 'commands', 'clean'))(di);
+        require(path.join(__dirname, 'commands', 'upload'))(di);
         require(path.join(__dirname, 'commands', 'noCommand'))(di);
 
         di.program.parse(process.argv);

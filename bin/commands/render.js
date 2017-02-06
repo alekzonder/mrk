@@ -9,8 +9,6 @@ module.exports = function (di) {
         .alias('r')
         .description('render all .md files in work dir')
         .action(function () {
-            var cwd = process.cwd();
-
             var options = {
                 filter: function (filepath) {
                     if (di.api.fs.isIgnored(filepath)) {
@@ -25,9 +23,6 @@ module.exports = function (di) {
                 }
             };
 
-            var started = 0;
-            var done = 0;
-
             var queue = [];
 
             klaw(di.config.get('markdownDir'), options)
@@ -40,8 +35,6 @@ module.exports = function (di) {
                     if (item.stats.isDirectory()) {
                         return false;
                     }
-
-                    started = 0;
 
                     queue.push(item);
 

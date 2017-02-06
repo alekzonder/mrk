@@ -44,12 +44,24 @@ mrk render
 mrk r
 ```
 
+## clean
+
+clean all rendered files
+
+```
+mrk clean
+
+# OR
+
+mrk c
+```
+
 ## upload
 
 upload rendered files to webdav
 
 ```
-mrk upload http://example.com/
+mrk upload http://example.com/docs/
 ```
 
 # LICENSE
