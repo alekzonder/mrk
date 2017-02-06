@@ -30,6 +30,13 @@ init.config(logger)
     .then((di) => {
         di.program = require('commander');
 
+        var pkg = require(path.join(__dirname, '..', 'package.json'));
+
+        di.pkg = pkg;
+
+        di.program.version(pkg.version);
+
+        require(path.join(__dirname, 'commands', 'version'))(di);
         require(path.join(__dirname, 'commands', 'start'))(di);
         require(path.join(__dirname, 'commands', 'render'))(di);
         require(path.join(__dirname, 'commands', 'clean'))(di);

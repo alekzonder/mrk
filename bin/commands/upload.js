@@ -1,13 +1,13 @@
-var request = require('superagent');
-var path = require('path');
-var klaw = require('klaw');
-var _ = require('maf/vendors/lodash');
-
 module.exports = function (di) {
 
     di.program.command('upload <url>')
         .alias('up')
         .action(function (url) {
+
+            var request = require('superagent');
+            var path = require('path');
+            var klaw = require('klaw');
+            var _ = require('maf/vendors/lodash');
 
             var options = {};
 

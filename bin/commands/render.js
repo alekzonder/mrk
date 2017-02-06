@@ -1,15 +1,15 @@
-var path = require('path');
-var fs = require('fs-extra');
-var klaw = require('klaw');
-var _ = require('maf/vendors/lodash');
-
-
 module.exports = function (di) {
 
     di.program.command('render')
         .alias('r')
         .description('render all .md files in work dir')
         .action(function () {
+
+            var path = require('path');
+            var fs = require('fs-extra');
+            var klaw = require('klaw');
+            var _ = require('maf/vendors/lodash');
+            
             var options = {
                 filter: function (filepath) {
                     if (di.api.fs.isIgnored(filepath)) {
