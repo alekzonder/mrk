@@ -4,6 +4,8 @@
 [![bitHound Overall Score](https://www.bithound.io/github/alekzonder/mrk/badges/score.svg)](https://www.bithound.io/github/alekzonder/mrk)
 [![bitHound Dependencies](https://www.bithound.io/github/alekzonder/mrk/badges/dependencies.svg)](https://www.bithound.io/github/alekzonder/mrk/master/dependencies/npm)
 
+[![NPM](https://nodei.co/npm/mrk.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/mrk/)
+
 simple markdown server
 
 can render and upload your docs to webdav
