@@ -73,9 +73,13 @@ class Fs {
         var watcher = chokidar.watch(filepath, {
             ignoreInitial: false,
 
-            ignored: function (filepath, stats) {
+            ignored: (filepath, stats) => {
 
-                if (filepath.search(/www_md|node_modules|\.git/) > -1) {
+                if (this.isIgnored(filepath)) {
+                    return true;
+                }
+
+                if (filepath.search(this._config.get('wwwDir')) > -1) {
                     return true;
                 }
 
@@ -117,6 +121,20 @@ class Fs {
         }
 
         return true;
+    }
+
+    /**
+     * is file ignored
+     *
+     * @param {String} filepath
+     * @return {Boolean}
+     */
+    isIgnored (filepath) {
+        if (filepath.search(/node_modules|\.git/) > -1) {
+            return true;
+        }
+
+        return false;
     }
 
 }
