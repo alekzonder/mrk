@@ -1,16 +1,22 @@
 module.exports = function (di) {
 
-    di.program.command('render')
+    di.program.command('render [cwd]')
         .alias('r')
         .option('--footer <file>', 'set custom footer, should close </body></html>')
         .option('--raw', 'render without header and footer')
         .description('render all .md files in work dir')
-        .action(function (cmdOptions) {
+        .action(function (cwd, cmdOptions) {
 
             var path = require('path');
             var fs = require('fs-extra');
             var klaw = require('klaw');
             var _ = require('maf/vendors/lodash');
+
+            if (cwd) {
+                di.config.set('markdownDir', path.resolve(cwd));
+            }
+
+            di.logger.info('work dir = ' + di.config.get('markdownDir'));
 
             var options = {
                 filter: function (filepath) {

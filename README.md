@@ -44,7 +44,7 @@ mrk start
 mrk s
 ```
 
-## render
+## render [work dir]
 
 alias: r
 
