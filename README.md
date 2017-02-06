@@ -1,5 +1,9 @@
 # mrk
 
+[![bitHound Code](https://www.bithound.io/github/alekzonder/mrk/badges/code.svg)](https://www.bithound.io/github/alekzonder/mrk)
+[![bitHound Overall Score](https://www.bithound.io/github/alekzonder/mrk/badges/score.svg)](https://www.bithound.io/github/alekzonder/mrk)
+[![bitHound Dependencies](https://www.bithound.io/github/alekzonder/mrk/badges/dependencies.svg)](https://www.bithound.io/github/alekzonder/mrk/master/dependencies/npm)
+
 simple markdown server
 
 can render and upload your docs to webdav
