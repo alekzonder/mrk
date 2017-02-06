@@ -1,9 +1,9 @@
 # ROADMAP
 
 - [ ] start
-    - [ ] set work dir `start <work dir>`
+    - [x] set work dir `start <work dir>`
 - [x] render
-    - [ ] set workdir `render <work dir>`
+    - [x] set workdir `render <work dir>`
     - [x] read dir
     - [x] render all
 - [ ] upload
