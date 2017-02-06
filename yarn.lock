@@ -537,13 +537,13 @@ date-format@^0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/date-format/-/date-format-0.0.0.tgz#09206863ab070eb459acea5542cbd856b11966b3"
 
-debug@2.2.0, debug@^2.1.1, debug@~2.2.0:
+debug@2.2.0, debug@^2.1.1, debug@^2.2.0, debug@~2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
   dependencies:
     ms "0.7.1"
 
-debug@2.6.0, debug@^2.2.0:
+debug@2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.0.tgz#bc596bcabe7617f11d9fa15361eded5608b8499b"
   dependencies:
@@ -1489,16 +1489,7 @@ joi-to-json-schema@^2.2.1:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/joi-to-json-schema/-/joi-to-json-schema-2.4.0.tgz#f7fa3704ea1a9a3fd95e14d6d7625836e3c7064f"
 
-joi@^10.0.1:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/joi/-/joi-10.2.0.tgz#2c9dba08240d453e58145667f0d5006de527e328"
-  dependencies:
-    hoek "4.x.x"
-    isemail "2.x.x"
-    items "2.x.x"
-    topo "2.x.x"
-
-joi@~10.0.2:
+joi@^10.0.1, joi@~10.0.2:
   version "10.0.6"
   resolved "https://registry.yarnpkg.com/joi/-/joi-10.0.6.tgz#dbacbbf30b4dbb9d28ef6716d82c4580bb04c096"
   dependencies:
@@ -1685,11 +1676,7 @@ lodash.keys@^3.0.0:
     lodash.isarguments "^3.0.0"
     lodash.isarray "^3.0.0"
 
-lodash@^4.0.0, lodash@^4.1.0, lodash@^4.14.0, lodash@^4.16.4, lodash@^4.3.0:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
-
-lodash@~4.16.4:
+lodash@^4.0.0, lodash@^4.1.0, lodash@^4.14.0, lodash@^4.16.4, lodash@^4.3.0, lodash@~4.16.4:
   version "4.16.6"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.16.6.tgz#d22c9ac660288f3843e16ba7d2b5d06cca27d777"
 
@@ -1740,6 +1727,10 @@ maf@1.0.0-9:
     trace "^2.4.0"
     uuid "^3.0.1"
 
+markdown-it-abbr@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/markdown-it-abbr/-/markdown-it-abbr-1.0.4.tgz#d66b5364521cbb3dd8aa59dadfba2fb6865c8fd8"
+
 markdown-it-anchor@~2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-2.6.0.tgz#875d364f75d26f194616b843eee0083a8cea40de"
@@ -1757,6 +1748,22 @@ markdown-it-emoji@~1.3.0:
 markdown-it-footnote@~3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/markdown-it-footnote/-/markdown-it-footnote-3.0.1.tgz#7f3730747cacc86e2fe0bf8a17a710f34791517a"
+
+markdown-it-ins@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-ins/-/markdown-it-ins-2.0.0.tgz#a5aa6a30f1e2f71e9497567cfdff40f1fde67483"
+
+markdown-it-mark@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-mark/-/markdown-it-mark-2.0.0.tgz#46a1aa947105aed8188978e0a016179e404f42c7"
+
+markdown-it-sub@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-sub/-/markdown-it-sub-1.0.0.tgz#375fd6026eae7ddcb012497f6411195ea1e3afe8"
+
+markdown-it-sup@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-sup/-/markdown-it-sup-1.0.0.tgz#cb9c9ff91a5255ac08f3fd3d63286e15df0a1fc3"
 
 markdown-it-task-lists@~1.4.1:
   version "1.4.1"
@@ -2251,7 +2258,32 @@ repl-extra@^0.1.3:
   dependencies:
     cli-spinner "^0.2.5"
 
-request@^2.55.0, request@~2.74.0:
+request@^2.55.0, request@^2.79.0:
+  version "2.79.0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.79.0.tgz#4dfe5bf6be8b8cdc37fcf93e04b65577722710de"
+  dependencies:
+    aws-sign2 "~0.6.0"
+    aws4 "^1.2.1"
+    caseless "~0.11.0"
+    combined-stream "~1.0.5"
+    extend "~3.0.0"
+    forever-agent "~0.6.1"
+    form-data "~2.1.1"
+    har-validator "~2.0.6"
+    hawk "~3.1.3"
+    http-signature "~1.1.0"
+    is-typedarray "~1.0.0"
+    isstream "~0.1.2"
+    json-stringify-safe "~5.0.1"
+    mime-types "~2.1.7"
+    oauth-sign "~0.8.1"
+    qs "~6.3.0"
+    stringstream "~0.0.4"
+    tough-cookie "~2.3.0"
+    tunnel-agent "~0.4.1"
+    uuid "^3.0.0"
+
+request@~2.74.0:
   version "2.74.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.74.0.tgz#7693ca768bbb0ea5c8ce08c084a45efa05b892ab"
   dependencies:
@@ -2276,31 +2308,6 @@ request@^2.55.0, request@~2.74.0:
     stringstream "~0.0.4"
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
-
-request@^2.79.0:
-  version "2.79.0"
-  resolved "https://registry.yarnpkg.com/request/-/request-2.79.0.tgz#4dfe5bf6be8b8cdc37fcf93e04b65577722710de"
-  dependencies:
-    aws-sign2 "~0.6.0"
-    aws4 "^1.2.1"
-    caseless "~0.11.0"
-    combined-stream "~1.0.5"
-    extend "~3.0.0"
-    forever-agent "~0.6.1"
-    form-data "~2.1.1"
-    har-validator "~2.0.6"
-    hawk "~3.1.3"
-    http-signature "~1.1.0"
-    is-typedarray "~1.0.0"
-    isstream "~0.1.2"
-    json-stringify-safe "~5.0.1"
-    mime-types "~2.1.7"
-    oauth-sign "~0.8.1"
-    qs "~6.3.0"
-    stringstream "~0.0.4"
-    tough-cookie "~2.3.0"
-    tunnel-agent "~0.4.1"
-    uuid "^3.0.0"
 
 require-uncached@^1.0.2:
   version "1.0.3"

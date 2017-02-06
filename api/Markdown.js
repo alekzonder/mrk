@@ -4,10 +4,19 @@ var path = require('path');
 var fs = require('fs-extra');
 
 var MarkdownIt = require('markdown-it');
-var mdTaskLists = require('markdown-it-task-lists');
-var mdEmoji = require('markdown-it-emoji');
-var mdContainer = require('markdown-it-container');
-var mdFootnote = require('markdown-it-footnote');
+
+var plugins = {
+    taskLists: require('markdown-it-task-lists'),
+    emoji: require('markdown-it-emoji'),
+    footnote: require('markdown-it-footnote'),
+    ins: require('markdown-it-ins'),
+    sup: require('markdown-it-sup'),
+    sub: require('markdown-it-sub'),
+    anchor: require('markdown-it-anchor'),
+    mark: require('markdown-it-mark'),
+    // abbr: require('markdown-it-abbr')
+};
+
 var highlightJs = require('highlight.js');
 var slug = require('limax');
 
@@ -191,12 +200,18 @@ class Markdown {
             html: true
         });
 
-        this._md.use(mdTaskLists, {label: true});
-        this._md.use(mdEmoji);
-        this._md.use(mdFootnote);
+        this._md.use(plugins.taskLists, {label: true});
+        this._md.use(plugins.emoji);
+        this._md.use(plugins.footnote);
+        this._md.use(plugins.sub);
+        this._md.use(plugins.sup);
+        this._md.use(plugins.ins);
+        this._md.use(plugins.mark);
+        // this._md.use(plugins.abbr);
+
         // this._md.use(mdContainer);
 
-        this._md.use(require('markdown-it-anchor'), {
+        this._md.use(plugins.anchor, {
             level: 1,
             slugify: slug,
             permalink: true,
