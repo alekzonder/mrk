@@ -3,6 +3,7 @@ module.exports = function (di) {
     di.program.command('render')
         .alias('r')
         .option('--footer <file>', 'set custom footer, should close </body></html>')
+        .option('--raw', 'render without header and footer')
         .description('render all .md files in work dir')
         .action(function (cmdOptions) {
 
@@ -27,19 +28,23 @@ module.exports = function (di) {
 
             var queue = [];
 
-            var header = fs.readFileSync(path.join(__dirname, '/../../templates/render', 'header.html')).toString();
-            var footer = '';
+            var markdownOptions = {};
 
-            if (cmdOptions.footer) {
+            if (!cmdOptions.raw) {
+                markdownOptions.header = fs.readFileSync(path.join(__dirname, '/../../templates/render', 'header.html')).toString();
+                markdownOptions.footer = '';
 
-                if (!fs.existsSync(cmdOptions.footer)) {
-                    throw new Error('no footer file: ' + cmdOptions.footer);
+                if (cmdOptions.footer) {
+
+                    if (!fs.existsSync(cmdOptions.footer)) {
+                        throw new Error('no footer file: ' + cmdOptions.footer);
+                    }
+
+                    markdownOptions.footer = fs.readFileSync(path.resolve(cmdOptions.footer)).toString();
+
+                } else {
+                    markdownOptions.footer = fs.readFileSync(path.join(__dirname, '/../../templates/render', 'footer.html')).toString();
                 }
-
-                footer = fs.readFileSync(path.resolve(cmdOptions.footer)).toString();
-
-            } else {
-                footer = fs.readFileSync(path.join(__dirname, '/../../templates/render', 'footer.html')).toString();
             }
 
             klaw(di.config.get('markdownDir'), options)
@@ -70,7 +75,7 @@ module.exports = function (di) {
                             var item = _.cloneDeep(raw);
 
                             var to = di.api.fs.getRenderPath(item.path);
-                            di.api.markdown.renderFile(item.path, to, {header: header, footer: footer})
+                            di.api.markdown.renderFile(item.path, to, markdownOptions)
                                 .then(() => {
                                     di.logger.info(`render file: ${item.path} => ${to}`);
                                     resolve();

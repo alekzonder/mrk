@@ -24,6 +24,8 @@ npm install -g mrk@latest
 
 ## start
 
+alias: s
+
 - start markdown server on 3334 port for all network interfaces
 - watch all .md files in current work directory
 - recompile .md on change
@@ -44,33 +46,24 @@ mrk s
 
 ## render
 
+alias: r
+
 render all .md files in current work directory to ./www_md directory
-
-```
-mrk render
-
-# OR
-
-mrk r
-```
 
 ### options
 
 `--footer <filepath>` - set your custom footer with analytics or js
+`--raw` - render without header and footer
 
 ## clean
 
+alias: c
+
 clean all rendered files
 
-```
-mrk clean
+## upload <webdav-url>
 
-# OR
-
-mrk c
-```
-
-## upload
+alias: up
 
 upload rendered files to webdav
 
