@@ -4,6 +4,10 @@ simple markdown server
 
 can render and upload your docs to webdav
 
+powered with [markdown-it](https://github.com/markdown-it/markdown-it)
+
+![img](docs/screenshot.png)
+
 # install
 
 ```
