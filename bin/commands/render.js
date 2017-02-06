@@ -1,4 +1,5 @@
 var path = require('path');
+var fs = require('fs-extra');
 var klaw = require('klaw');
 var _ = require('maf/vendors/lodash');
 
@@ -24,6 +25,9 @@ module.exports = function (di) {
             };
 
             var queue = [];
+
+            var header = fs.readFileSync(path.join(__dirname, '/../../templates/render', 'header.html')).toString();
+            var footer = fs.readFileSync(path.join(__dirname, '/../../templates/render', 'footer.html')).toString();
 
             klaw(di.config.get('markdownDir'), options)
                 .on('data', function (item) {
@@ -53,7 +57,7 @@ module.exports = function (di) {
                             var item = _.cloneDeep(raw);
 
                             var to = di.api.fs.getRenderPath(item.path);
-                            di.api.markdown.renderFile(item.path, to)
+                            di.api.markdown.renderFile(item.path, to, {header: header, footer: footer})
                                 .then(() => {
                                     di.logger.info(`render file: ${item.path} => ${to}`);
                                     resolve();
