@@ -208,7 +208,6 @@ class Markdown {
         this._md.use(plugins.ins);
         this._md.use(plugins.mark);
         // this._md.use(plugins.abbr);
-
         // this._md.use(mdContainer);
 
         this._md.use(plugins.anchor, {
@@ -219,6 +218,10 @@ class Markdown {
             permalinkSymbol: '#',
             permalinkBefore: false
         });
+
+        this._md.renderer.rules.table_open = function () {
+            return '<table class="mrk table">\n';
+        };
 
     }
 
