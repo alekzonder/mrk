@@ -1,6 +1,6 @@
 # ROADMAP
 
-- [ ] start
+- [x] start
     - [x] set work dir `start <work dir>`
 - [x] render
     - [x] set workdir `render <work dir>`
