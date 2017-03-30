@@ -261,11 +261,12 @@ class Markdown {
      * @return {String}
      */
     _slugify (text) {
-        var slug = text.toLowerCase()
-          .replace(/\s/g, '-')
-          .replace(/[^\w-]/g, '');
-
-        return slug;
+        return toc.slugify(text);
+        // var slug = text.toLowerCase()
+        //   .replace(/\s/g, '-')
+        //   .replace(/[^\w-]/g, '');
+        //
+        // return slug;
     }
 
 }
