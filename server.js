@@ -22,7 +22,8 @@ module.exports = function (di) {
 
     var watcher = di.api.markdown.watch(di.config.get('markdownDir'), {
         header: fs.readFileSync(path.join(__dirname, 'templates/render/header.html')).toString(),
-        footer: fs.readFileSync(path.join(__dirname, 'templates/render/footer.html')).toString()
+        prefooter: fs.readFileSync(path.join(__dirname, 'templates/render/prefooter.html')).toString(),
+        footer: ''
     });
 
     var serve = serveStatic(di.config.get('wwwDir'));

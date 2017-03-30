@@ -37,8 +37,11 @@ module.exports = function (di) {
             var markdownOptions = {};
 
             if (!cmdOptions.raw) {
+
                 markdownOptions.header = fs.readFileSync(path.join(__dirname, '/../../templates/render', 'header.html')).toString();
                 markdownOptions.footer = '';
+
+                markdownOptions.prefooter = fs.readFileSync(path.join(__dirname, '/../../templates/render', 'prefooter.html')).toString();
 
                 if (cmdOptions.footer) {
 
@@ -49,7 +52,7 @@ module.exports = function (di) {
                     markdownOptions.footer = fs.readFileSync(path.resolve(cmdOptions.footer)).toString();
 
                 } else {
-                    markdownOptions.footer = fs.readFileSync(path.join(__dirname, '/../../templates/render', 'footer.html')).toString();
+                    markdownOptions.footer = '';
                 }
             }
 
