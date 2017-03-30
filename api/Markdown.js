@@ -208,14 +208,18 @@ class Markdown {
     _init () {
 
         this._md = new MarkdownIt({
-            highlight: function (code, type) {
+            highlight: (code, type) => {
 
                 var hl = code;
 
-                if (type) {
-                    hl = highlightJs.highlight(type, code).value;
-                } else {
-                    hl = highlightJs.highlightAuto(code).value;
+                try {
+                    if (type) {
+                        hl = highlightJs.highlight(type, code).value;
+                    } else {
+                        hl = highlightJs.highlightAuto(code).value;
+                    }
+                } catch (error) {
+                    this._logger.error(error);
                 }
 
                 return hl;
