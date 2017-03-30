@@ -18,7 +18,7 @@ var plugins = {
 };
 
 var highlightJs = require('highlight.js');
-var slug = require('limax');
+var toc = require('markdown-toc');
 
 /**
  * Markdown render class
@@ -49,7 +49,18 @@ class Markdown {
     renderText (text) {
 
         return new Promise((resolve, reject) => {
-            resolve(this._md.render(text));
+
+            const tocOptions = {
+                bullets: '-',
+                slugify: this._slugify
+            };
+
+            text = toc.insert(text, tocOptions);
+
+            var rendered = this._md.render(text);
+
+            resolve(rendered);
+
         });
 
     }
@@ -76,13 +87,20 @@ class Markdown {
                 })
                 .then((text) => {
 
+
                     if (typeof options.header === 'string') {
                         text = options.header + text;
+                    }
+
+                    if (typeof options.prefooter === 'string') {
+                        text = text + options.prefooter;
                     }
 
                     if (typeof options.footer === 'string') {
                         text = text + options.footer;
                     }
+
+                    text = text + '</body></html>';
 
                     return this._save(filepathTo, text);
                 })
@@ -190,8 +208,16 @@ class Markdown {
     _init () {
 
         this._md = new MarkdownIt({
-            highlight: function (code) {
-                var hl = highlightJs.highlightAuto(code).value;
+            highlight: function (code, type) {
+
+                var hl = code;
+
+                if (type) {
+                    hl = highlightJs.highlight(type, code).value;
+                } else {
+                    hl = highlightJs.highlightAuto(code).value;
+                }
+
                 return hl;
             },
 
@@ -212,19 +238,31 @@ class Markdown {
 
         this._md.use(plugins.anchor, {
             level: 1,
-            slugify: slug,
+            slugify: this._slugify,
             permalink: true,
             permalinkClass: 'header-anchor',
             permalinkSymbol: '#',
             permalinkBefore: false
         });
 
-        this._md.renderer.rules.table_open = function () {
-            return '<table class="mrk table">\n';
-        };
+        // this._md.renderer.rules.table_open = function () {
+        //     return '<table class="mrk table">\n';
+        // };
 
     }
 
+    /**
+     * @private
+     * @param {String} text
+     * @return {String}
+     */
+    _slugify (text) {
+        var slug = text.toLowerCase()
+          .replace(/\s/g, '-')
+          .replace(/[^\w-]/g, '');
+
+        return slug;
+    }
 
 }
 
