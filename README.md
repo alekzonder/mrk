@@ -12,6 +12,10 @@ can render and upload your docs to webdav
 
 powered with [markdown-it](https://github.com/markdown-it/markdown-it)
 
+styles from [github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
+
+highlight code with [highlight.js](https://highlightjs.org/)
+
 ![img](docs/screenshot.png)
 
 # install
