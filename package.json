@@ -35,7 +35,7 @@
   },
   "homepage": null,
   "dependencies": {
-    "chokidar": "~1.6.1",
+    "chokidar": "~1.7.0",
     "commander": "~2.9.0",
     "finalhandler": "~0.5.1",
     "fs-extra": "~2.0.0",
