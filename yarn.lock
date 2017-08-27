@@ -1560,9 +1560,18 @@ joi-to-json-schema@^2.2.1:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/joi-to-json-schema/-/joi-to-json-schema-2.4.0.tgz#f7fa3704ea1a9a3fd95e14d6d7625836e3c7064f"
 
-joi@^10.0.1, joi@~10.2.1:
+joi@^10.0.1:
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/joi/-/joi-10.2.1.tgz#f3a5f6a492d311735f17b109487646c2194aa92d"
+  dependencies:
+    hoek "4.x.x"
+    isemail "2.x.x"
+    items "2.x.x"
+    topo "2.x.x"
+
+joi@~10.6.0:
+  version "10.6.0"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-10.6.0.tgz#52587f02d52b8b75cdb0c74f0b164a191a0e1fc2"
   dependencies:
     hoek "4.x.x"
     isemail "2.x.x"
