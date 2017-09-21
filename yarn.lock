@@ -868,9 +868,9 @@ esdoc-node@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/esdoc-node/-/esdoc-node-1.0.2.tgz#3e21e2e05f9f3522060001e638b652f30ab1ab12"
 
-esdoc@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/esdoc/-/esdoc-1.0.2.tgz#159dc8713aa103489754bd80c3314644ac7a4455"
+esdoc@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/esdoc/-/esdoc-1.0.3.tgz#4a67d33e8b5462e12828cf5d34507f3979cac30e"
   dependencies:
     babel-generator "6.11.4"
     babel-traverse "6.12.0"
