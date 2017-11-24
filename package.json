@@ -36,7 +36,7 @@
   "homepage": null,
   "dependencies": {
     "chokidar": "^1.7.0",
-    "commander": "^2.11.0",
+    "commander": "^2.12.1",
     "finalhandler": "^1.0.5",
     "fs-extra": "^4.0.2",
     "highlight.js": "^9.12.0",
