@@ -36,12 +36,12 @@
   "homepage": null,
   "dependencies": {
     "chokidar": "^1.7.0",
-    "commander": "^2.11.0",
-    "finalhandler": "^1.0.5",
+    "commander": "^2.12.1",
+    "finalhandler": "^1.1.0",
     "fs-extra": "^4.0.2",
     "highlight.js": "^9.12.0",
-    "joi": "^10.6.0",
-    "klaw": "^2.1.0",
+    "joi": "^13.0.2",
+    "klaw": "^2.1.1",
     "lodash": "^4.17.4",
     "maf": "^1.0.0-9",
     "markdown-it": "^8.4.0",
@@ -54,22 +54,22 @@
     "markdown-it-mark": "^2.0.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "markdown-it-task-lists": "^2.0.1",
+    "markdown-it-task-lists": "^2.1.0",
     "markdown-toc": "^1.2.0",
     "md5": "^2.2.1",
-    "moment": "^2.18.1",
-    "serve-index": "^1.9.0",
-    "superagent": "^3.6.0",
+    "moment": "^2.19.2",
+    "serve-index": "^1.9.1",
+    "superagent": "^3.8.1",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-json-schema": "^1.5.0",
     "codeclimate-test-reporter": "^0.5.0",
-    "esdoc": "^1.0.2",
+    "esdoc": "^1.0.4",
     "esdoc-node": "^1.0.2",
-    "eslint": "^4.7.1",
+    "eslint": "^4.12.0",
     "istanbul": "^0.4.5",
-    "mocha": "^3.5.3"
+    "mocha": "^4.0.1"
   }
 }
