@@ -966,9 +966,9 @@ escodegen@^1.6.1:
   optionalDependencies:
     source-map "~0.5.6"
 
-esdoc-node@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/esdoc-node/-/esdoc-node-1.0.2.tgz#3e21e2e05f9f3522060001e638b652f30ab1ab12"
+esdoc-node@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/esdoc-node/-/esdoc-node-1.0.3.tgz#b02acf45249bf0a4483d2fc455e3bdb1475af327"
 
 esdoc@^1.0.4:
   version "1.0.4"
