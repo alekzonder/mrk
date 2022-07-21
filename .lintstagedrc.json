@@ -1,0 +1,5 @@
+{
+  "*.(ts|tsx)": ["yarn lint:write"],
+  "*.(js|jsx)": ["yarn lint:write"],
+  "**/*": ["prettier --write --ignore-unknown"]
+}
