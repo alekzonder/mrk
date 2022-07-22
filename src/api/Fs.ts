@@ -1,7 +1,7 @@
-import path from "path";
-import fs from "fs-extra";
-import klaw from "klaw";
-import chokidar from "chokidar";
+import * as path from "path";
+import * as fs from "fs-extra";
+import * as klaw from "klaw";
+import * as chokidar from "chokidar";
 
 import { Logger, ConfigType } from "@/util";
 

@@ -1,6 +1,6 @@
-import fs from "fs-extra";
-import MarkdownIt from "markdown-it";
-import highlightJs from "highlight.js";
+import * as fs from "fs-extra";
+import * as MarkdownIt from "markdown-it";
+import * as highlightJs from "highlight.js";
 
 import { Logger, ConfigType } from "@/util";
 import Fs from "./Fs";
