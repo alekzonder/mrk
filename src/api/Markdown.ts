@@ -2,23 +2,33 @@ import * as fs from "fs-extra";
 import * as MarkdownIt from "markdown-it";
 import * as highlightJs from "highlight.js";
 
+import taskLists = require("markdown-it-task-lists");
+import emoji = require("markdown-it-emoji");
+import footnote = require("markdown-it-footnote");
+import ins = require("markdown-it-ins");
+import sup = require("markdown-it-sup");
+import sub = require("markdown-it-sub");
+import anchor = require("markdown-it-anchor");
+import mark = require("markdown-it-mark");
+import toc = require("markdown-it-table-of-contents");
+import obsidian = require("markdown-it-obsidian");
+
 import { Logger, ConfigType } from "@/util";
 import Fs from "./Fs";
 
-// var plugins = {
-//     taskLists: require('markdown-it-task-lists'),
-//     emoji: require('markdown-it-emoji'),
-//     footnote: require('markdown-it-footnote'),
-//     ins: require('markdown-it-ins'),
-//     sup: require('markdown-it-sup'),
-//     sub: require('markdown-it-sub'),
-//     anchor: require('markdown-it-anchor'),
-//     mark: require('markdown-it-mark'),
-//     // abbr: require('markdown-it-abbr')
-// };
-// var toc = require('markdown-toc');
-
-const plugins = {};
+const plugins = {
+  taskLists,
+  emoji,
+  footnote,
+  ins,
+  sup,
+  sub,
+  anchor,
+  mark,
+  toc,
+  obsidian,
+  // abbr: require('markdown-it-abbr')
+};
 
 /**
  * Markdown render class
@@ -40,13 +50,15 @@ export default class Markdown {
     this._md = this._initMarkdownIt();
   }
 
-  async renderText(text: string) {
-    //   const tocOptions = {
-    //     bullets: "-",
-    //     slugify: this._slugify,
-    //   };
+  async renderText(_text: string) {
+    let text = _text;
 
-    //   text = toc.insert(text, tocOptions);
+    // const tocOptions = {
+    //   bullets: "-",
+    //   slugify: this._slugify,
+    // };
+
+    // text = toc(text, tocOptions);
 
     return this._md.render(text);
   }
@@ -133,7 +145,7 @@ export default class Markdown {
   }
 
   _initMarkdownIt(): MarkdownIt {
-    return new MarkdownIt({
+    const md = new MarkdownIt({
       highlight: (code, type) => {
         let hl = code;
 
@@ -155,39 +167,37 @@ export default class Markdown {
       html: true,
     });
 
-    // this._md.use(plugins.taskLists, { label: true });
-    // this._md.use(plugins.emoji);
-    // this._md.use(plugins.footnote);
-    // this._md.use(plugins.sub);
-    // this._md.use(plugins.sup);
-    // this._md.use(plugins.ins);
-    // this._md.use(plugins.mark);
+    md.use(plugins.taskLists, { label: true });
+    md.use(plugins.emoji);
+    md.use(plugins.footnote);
+    md.use(plugins.sub);
+    md.use(plugins.sup);
+    md.use(plugins.ins);
+    md.use(plugins.mark);
+    md.use(plugins.toc);
+    md.use(plugins.obsidian);
     // this._md.use(plugins.abbr);
     // this._md.use(mdContainer);
 
-    // this._md.use(plugins.anchor, {
-    //   level: 1,
-    //   slugify: this._slugify,
-    //   permalink: true,
-    //   permalinkClass: "header-anchor",
-    //   permalinkSymbol: "#",
-    //   permalinkBefore: false,
-    // });
+    md.use(plugins.anchor, {
+      level: 1,
+      slugify: this._slugify,
+      permalink: true,
+      permalinkClass: "header-anchor",
+      permalinkSymbol: "#",
+      permalinkBefore: false,
+    });
 
-    // this._md.renderer.rules.table_open = function () {
-    //     return '<table class="mrk table">\n';
-    // };
+    md.renderer.rules.table_open = function () {
+      return '<table class="mrk table">\n';
+    };
+
+    return md;
   }
 
-  /**
-   * @private
-   * @param {String} text
-   * @return {String}
-   */
   _slugify(text: string): string {
-    return text
-      .toLowerCase()
-      .replace(/\s/g, "-")
-      .replace(/[^\w-]/g, "");
+    return encodeURIComponent(
+      String(text).trim().toLowerCase().replace(/\s+/g, "-")
+    );
   }
 }
